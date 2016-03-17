@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160317010029) do
+ActiveRecord::Schema.define(version: 20160317010457) do
 
   create_table "customers", force: :cascade do |t|
     t.integer "customer_id", limit: 4
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20160317010029) do
     t.text    "processed",      limit: 65535
     t.text    "total_price",    limit: 65535
     t.string  "total_discount", limit: 255
+    t.boolean "marketing"
   end
 
   create_table "products", force: :cascade do |t|
