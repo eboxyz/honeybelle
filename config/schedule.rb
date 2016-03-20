@@ -20,6 +20,26 @@
 # Learn more: http://github.com/javan/whenever
 
 
-every 12.hours do
+##ED'S NOTES BELOW!
 
+
+##we will define how often to run this task in here
+##heroku has a scheduler add-on
+##https://devcenter.heroku.com/articles/scheduler
+##specifically for cron tasks
+
+
+##we set an error message log for if the cron ever fails to update
+##the cron events can overlap if you don't set calculate how long it'll take for the task to complete
+##we don't need to worry aobut this, because we're setting the cron task to trigger
+##once a day
+
+##update the cron log using the command
+##whenever --update-crontab
+
+
+set :output, {:error => "log/cron_error_log.log", :standard => "log/cron_log.log"}
+
+every 1.day, :at => '12:00 am' do
+  rake "events:fetch"
 end
