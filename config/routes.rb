@@ -4,9 +4,14 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-    root 'honeybelle#index'
+    root 'application#index'
 
-    post '/' => 'honeybelle#index'
+    post '/' => 'application#index'
+
+    namespace :api do
+      resources :customers, :orders, :products, only: [:index, :show, :create, :update, :destroy]
+    end
+
 
 
   # Example of regular route:

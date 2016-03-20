@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
         #if error occurs, flash an error
         @news = OpenStruct.new(:code => nil, :message => "Domain not found.")
       end
-
+  end
 end
 
 
